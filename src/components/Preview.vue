@@ -34,9 +34,11 @@ export default {
 	},
 	methods: {
 		run() {
-			divId = this.cname()
 			this.destoryPreview();
+			divId = this.cname()
 			this.renderPreview();
+			
+			
 		},
 		getTagTpl(tpl, tag){
 			const reg = new RegExp('<' + tag + '[^>]*>');
@@ -69,7 +71,6 @@ export default {
 				// 使用全局组件的方式
 				this.$newComponent(divId, ext)
 				this.componentName = divId
-
 				// 使用创建dom的方式
 				// this.component = new ext().$mount()
 				// this.$refs.preview.appendChild(this.component.$el)
@@ -98,9 +99,12 @@ export default {
 			}
 		},
 		destoryPreview() {
-			// const styleEle = document.getElementById('preview-style');
+			const styleEle = document.getElementById('preview-style');
 			this.errMsg = ''
-			// styleEle && styleEle.parentNode.removeChild(styleEle);
+			styleEle && styleEle.parentNode.removeChild(styleEle);
+			// 销毁之前的实例
+			this.$destroyComponents(divId)
+			// this.$destroy(divId)
 			// if (this.component !== null) {
 			// 		this.$refs.preview.removeChild(this.component.$el);
 			// 		this.component.$destroy();

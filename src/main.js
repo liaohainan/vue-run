@@ -9,10 +9,12 @@ Vue.config.productionTip = false
 
 
 
-Vue.prototype.$newComponent = (name, component) => {
-  Vue.component(name, component)
+Vue.prototype.$newComponent = (id, component) => {
+  Vue.component(id, component)
 }
-
+Vue.prototype.$destroyComponents = (id) => {
+  delete Vue.options.components[id]
+}
 
 new Vue({
   // router,

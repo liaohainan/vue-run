@@ -7,10 +7,6 @@ module.exports = {
     //     new MyAwesomeWebpackPlugin()
     //   ]
     // }
-    // chainWebpack: config => {
-    //     config
-    //     .output
-    //     .path(path.resolve(__dirname, './docs'))
-    // }
+    baseUrl: './'
     
   }
